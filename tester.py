@@ -120,7 +120,7 @@ def sanger_cli(
     """
     Runs the Sanger Javascript client.
 
-    Available at https://github.com/wtsi-npg/npg_ranger/blob/devel/bin/client.js
+    Available at https://www.npmjs.com/package/npg_ranger
     """
     if data_format is not None:
         raise ValueError("FIXME: data formats for Sanger client")
@@ -130,7 +130,7 @@ def sanger_cli(
             url += "&start=" + str(start)
             if end is not None:
                 url += "&end=" + str(end)
-    cmd = ["node", "client.js", url, filename]
+    cmd = ["npg_ranger_client", url, filename]
     logging.info("sanger client: run {}".format(" ".join(cmd)))
     retry_command(cmd)
 
